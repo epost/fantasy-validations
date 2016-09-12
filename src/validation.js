@@ -53,6 +53,14 @@ Validation.prototype.concat = function(b) {
     );
 };
 
+Validation.prototype.flatten = function() {
+  return this.f ? this : this.s; // TODO use fold
+}
+
+Validation.prototype.chain = function(f) {
+  return this.map(f).flatten();
+}
+
 // Export
 if(typeof module != 'undefined')
     module.exports = Validation;
